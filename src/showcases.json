@@ -1,0 +1,95 @@
+[
+  {
+    "source": 1,
+    "start": 35.4,
+    "end": 40.6,
+    "title": "AI demo",
+    "subtitle": "",
+    "tags": [],
+    "instruction": "",
+    "asset": "",
+    "kind": "video"
+  },
+  {
+    "source": 2,
+    "start": 60.4,
+    "end": 65.5,
+    "title": "Allianz automatizácia",
+    "subtitle": "",
+    "tags": [],
+    "instruction": "",
+    "asset": "",
+    "kind": "video"
+  },
+  {
+    "start": 80.34,
+    "end": 87.9,
+    "title": "CBA Music",
+    "subtitle": "Vlastná hudba. Vlastné publikum.",
+    "tags": [
+      "Music label",
+      "Instagram",
+      "Komunita"
+    ],
+    "asset": "showcase/Screenshot_20261117_153114_Instagram.jpg",
+    "kind": "music-profile",
+    "source": 2,
+    "instruction": ""
+  },
+  {
+    "start": 87.9,
+    "end": 92.4,
+    "title": "Hudba, ktorá si nájde publikum",
+    "subtitle": "Miliónové zobrazenia jednotlivých príspevkov",
+    "tags": [
+      "Reels",
+      "Obsah",
+      "Organický rast"
+    ],
+    "asset": "showcase/Screenshot_20261117_153720_Instagram.jpg",
+    "kind": "music-reels",
+    "source": 2,
+    "instruction": ""
+  },
+  {
+    "start": 92.4,
+    "end": 99.47,
+    "title": "11 miliónov zobrazení za jún",
+    "subtitle": "Mesačný prehľad z Instagramu",
+    "tags": [
+      "11 M zobrazení",
+      "97 % nesledovateľov",
+      "Rast"
+    ],
+    "asset": "showcase/IMG_20261117_153510_095.jpg",
+    "kind": "music-monthly",
+    "source": 2,
+    "instruction": ""
+  },
+  {
+    "start": 99.47,
+    "end": 106.4,
+    "title": "Od obsahu k reálnemu dosahu",
+    "subtitle": "Ukážka štatistík Instagram Insights",
+    "tags": [
+      "10 M+ zobrazení",
+      "4,69 M oslovených účtov",
+      "Analytics"
+    ],
+    "asset": "showcase/IMG_20261117_153524_613.jpg",
+    "kind": "music-insights",
+    "source": 2,
+    "instruction": ""
+  },
+  {
+    "source": 2,
+    "start": 116,
+    "end": 120.5,
+    "title": "GitHub projekty",
+    "subtitle": "",
+    "tags": [],
+    "instruction": "",
+    "asset": "",
+    "kind": "video"
+  }
+]

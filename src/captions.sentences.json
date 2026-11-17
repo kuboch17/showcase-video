@@ -1,0 +1,356 @@
+[
+  {
+    "source": 1,
+    "start": 0,
+    "end": 3,
+    "text": "Koľkokrát sa vám už stalo, že vám niekto povedal,"
+  },
+  {
+    "source": 1,
+    "start": 3,
+    "end": 4.36,
+    "text": "že niečo nie je možné?"
+  },
+  {
+    "source": 1,
+    "start": 4.36,
+    "end": 7.27,
+    "text": "Mne sa to stáva pomerne často. A úprimne?"
+  },
+  {
+    "source": 1,
+    "start": 7.27,
+    "end": 10.1,
+    "text": "Milujem ten pocit, keď môžem niekomu dokázať, že sa mýlil."
+  },
+  {
+    "source": 1,
+    "start": 10.1,
+    "end": 12.6,
+    "text": "Presne takto som rozmýšľal, keď sme dostali zadanie"
+  },
+  {
+    "source": 1,
+    "start": 12.6,
+    "end": 14.54,
+    "text": "na hackathone Slovenskej sporiteľne."
+  },
+  {
+    "source": 1,
+    "start": 14.54,
+    "end": 16.88,
+    "text": "Kde boli vypísané štyri výzvy a mali sme si"
+  },
+  {
+    "source": 1,
+    "start": 16.88,
+    "end": 18.6,
+    "text": "vybrať jednu, ktorú vypracujeme."
+  },
+  {
+    "source": 1,
+    "start": 18.6,
+    "end": 21.4,
+    "text": "Ja som si povedal: prečo nevypracovať všetky štyri?"
+  },
+  {
+    "source": 1,
+    "start": 21.4,
+    "end": 24.03,
+    "text": "Niekomu by sa to zdalo nemožné, spraviť v takom"
+  },
+  {
+    "source": 1,
+    "start": 24.03,
+    "end": 26.78,
+    "text": "krátkom časovom rozmedzí všetky štyri témy."
+  },
+  {
+    "source": 1,
+    "start": 26.78,
+    "end": 28.38,
+    "text": "No ja som dostal nápad."
+  },
+  {
+    "source": 1,
+    "start": 28.38,
+    "end": 31.32,
+    "text": "Starý, neintuitívny eGrant systém, ktorý"
+  },
+  {
+    "source": 1,
+    "start": 31.32,
+    "end": 34.17,
+    "text": "sme mali prerobiť, vôbec netreba prerábať."
+  },
+  {
+    "source": 1,
+    "start": 34.17,
+    "end": 36.38,
+    "text": "Čo keby sme iba naučili AI, ako v ňom robiť,"
+  },
+  {
+    "source": 1,
+    "start": 36.38,
+    "end": 38.62,
+    "text": "a používateľovi by sme poskytli len jednoduché,"
+  },
+  {
+    "source": 1,
+    "start": 38.62,
+    "end": 41.24,
+    "text": "moderné rozhranie, cez ktoré by zadával požiadavky,"
+  },
+  {
+    "source": 1,
+    "start": 41.24,
+    "end": 43.42,
+    "text": "dostával výsledky a zároveň v reálnom čase"
+  },
+  {
+    "source": 1,
+    "start": 43.42,
+    "end": 44.5,
+    "text": "by videl, čo AI robí."
+  },
+  {
+    "source": 2,
+    "start": 43.4,
+    "end": 46.14,
+    "text": "Toto originálne riešenie a náš AI chatbot nás"
+  },
+  {
+    "source": 2,
+    "start": 46.14,
+    "end": 47.9,
+    "text": "dostali až do finále a Slovenská sporiteľňa"
+  },
+  {
+    "source": 2,
+    "start": 47.9,
+    "end": 50.12,
+    "text": "má doteraz záujem implementovať naše riešenie"
+  },
+  {
+    "source": 2,
+    "start": 50.12,
+    "end": 51.4,
+    "text": "do reálneho systému."
+  },
+  {
+    "source": 2,
+    "start": 51.4,
+    "end": 53.6,
+    "text": "Presne takto rozmýšľam aj v práci."
+  },
+  {
+    "source": 2,
+    "start": 53.6,
+    "end": 55.3,
+    "text": "Aktuálne pracujem v Allianz, kde som vyvinul"
+  },
+  {
+    "source": 2,
+    "start": 55.3,
+    "end": 56.9,
+    "text": "AI automatizáciu mojej roboty."
+  },
+  {
+    "source": 2,
+    "start": 56.9,
+    "end": 59.2,
+    "text": "Porovnávam, či daný klient je naozaj klient,"
+  },
+  {
+    "source": 2,
+    "start": 59.2,
+    "end": 60.4,
+    "text": "za ktorého sa vydáva."
+  },
+  {
+    "source": 2,
+    "start": 60.4,
+    "end": 63.4,
+    "text": "Takže v jednoduchosti som vymyslel AI automatizáciu"
+  },
+  {
+    "source": 2,
+    "start": 63.4,
+    "end": 67.4,
+    "text": "takého background checku našich klientov na projekte Symphony."
+  },
+  {
+    "source": 2,
+    "start": 67.4,
+    "end": 69.16,
+    "text": "Keďže tím musí denne vyriešiť viac"
+  },
+  {
+    "source": 2,
+    "start": 69.16,
+    "end": 71.07,
+    "text": "ako tisíc takýchto alertov, práve vykonávam"
+  },
+  {
+    "source": 2,
+    "start": 71.07,
+    "end": 71.9,
+    "text": "robotu za štyroch"
+  },
+  {
+    "source": 2,
+    "start": 71.9,
+    "end": 73.9,
+    "text": "a môj šéf je nadmieru spokojný."
+  },
+  {
+    "source": 2,
+    "start": 73.9,
+    "end": 76.91,
+    "text": "Ale táto schopnosť hľadať príležitosti sa u mňa"
+  },
+  {
+    "source": 2,
+    "start": 76.91,
+    "end": 80.34,
+    "text": "nekončí iba programovaním. Takto som rozmýšľal,"
+  },
+  {
+    "source": 2,
+    "start": 80.34,
+    "end": 82.9,
+    "text": "keď som si zakladal svoje vlastné hudobné vydavateľstvo CBA Music."
+  },
+  {
+    "source": 2,
+    "start": 82.9,
+    "end": 85.61,
+    "text": "Toto je nová generácia hudobných vydavateľstiev,"
+  },
+  {
+    "source": 2,
+    "start": 85.61,
+    "end": 87.9,
+    "text": "ktoré sa pýtajú jednu otázku:"
+  },
+  {
+    "source": 2,
+    "start": 87.9,
+    "end": 90.42,
+    "text": "Kde je najviac ľudí, ktorí sú otvorení si"
+  },
+  {
+    "source": 2,
+    "start": 90.42,
+    "end": 92.4,
+    "text": "uložiť a počúvať pesničku?"
+  },
+  {
+    "source": 2,
+    "start": 92.4,
+    "end": 95.94,
+    "text": "Sú to práve sociálne siete, kde naše vydavateľstvo"
+  },
+  {
+    "source": 2,
+    "start": 95.94,
+    "end": 99.47,
+    "text": "organicky, s rozpočtom 0 eur, dosiahlo dosahy"
+  },
+  {
+    "source": 2,
+    "start": 99.47,
+    "end": 102.9,
+    "text": "40 miliónov účtov za rok 2025."
+  },
+  {
+    "source": 2,
+    "start": 102.9,
+    "end": 106.4,
+    "text": "CBA Music je teraz hlavným zdrojom môjho príjmu."
+  },
+  {
+    "source": 2,
+    "start": 106.4,
+    "end": 108.5,
+    "text": "Moja schopnosť vidieť príležitosť tam, kde"
+  },
+  {
+    "source": 2,
+    "start": 108.5,
+    "end": 110.87,
+    "text": "ostatní vidia iba problém, je podľa mňa presne"
+  },
+  {
+    "source": 2,
+    "start": 110.87,
+    "end": 112.9,
+    "text": "niečo, čo váš AI startup potrebuje."
+  },
+  {
+    "source": 2,
+    "start": 112.9,
+    "end": 115.85,
+    "text": "Okrem veľmi dobrého technického základu niekoľko"
+  },
+  {
+    "source": 2,
+    "start": 115.85,
+    "end": 118.22,
+    "text": "mojich open-source projektov dostalo ocenenie"
+  },
+  {
+    "source": 2,
+    "start": 118.22,
+    "end": 121.17,
+    "text": "za kvalitné riešenie na GitHube a boli zaradené"
+  },
+  {
+    "source": 2,
+    "start": 121.17,
+    "end": 123.9,
+    "text": "do open-source AI reference indexu."
+  },
+  {
+    "source": 2,
+    "start": 123.9,
+    "end": 126.69,
+    "text": "Mám aj cit pre produktové myslenie, realizáciu,"
+  },
+  {
+    "source": 2,
+    "start": 126.69,
+    "end": 129.47,
+    "text": "používanie moderných nástrojov a hlavu plnú"
+  },
+  {
+    "source": 2,
+    "start": 129.47,
+    "end": 130.9,
+    "text": "dobrých nápadov."
+  },
+  {
+    "source": 2,
+    "start": 130.9,
+    "end": 134.9,
+    "text": "Takže práve preto ma zaujalo Codeless AI."
+  },
+  {
+    "source": 2,
+    "start": 134.9,
+    "end": 137.84,
+    "text": "Ďakujem veľmi pekne za váš čas. V prípade, že vás"
+  },
+  {
+    "source": 2,
+    "start": 137.84,
+    "end": 140.43,
+    "text": "moje projekty zaujali, som otvorený krátkemu"
+  },
+  {
+    "source": 2,
+    "start": 140.43,
+    "end": 141.9,
+    "text": "callu alebo pohovoru."
+  }
+]
