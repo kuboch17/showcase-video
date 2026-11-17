@@ -11,8 +11,7 @@ for(const s of showcases){const last=ranges[ranges.length-1];if(last&&last.sourc
 export const showcaseLift=(source:number,time:number)=>{const r=ranges.find(r=>r.source===source&&time>=r.start-.4&&time<r.end+.4);if(!r)return 0;return interpolate(time,[r.start-.4,r.start+.25,r.end-.25,r.end+.4],[0,1,1,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp',easing:t=>t*t*(3-2*t)});};
 export const Subtitles:React.FC<{source:number;time:number;size:number;lift:number}>=({source,time,size,lift})=>{
  const cue=(captions as Cue[]).find(c=>c.source===source&&time>=c.start&&time<c.end);if(!cue)return null;
- const enter=interpolate(time-cue.start,[0,.07],[.96,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
- return <AbsoluteFill style={{justifyContent:'flex-end',alignItems:'center',paddingBottom:330-160*lift,pointerEvents:'none'}}><div key={`${source}-${cue.start}`} style={{maxWidth:920,padding:'10px 24px',textAlign:'center',fontFamily:'Segoe UI,Arial,sans-serif',fontSize:size,fontWeight:650,lineHeight:1.14,color:'#FFE477',textShadow:'0 3px 8px #000,0 0 24px #000b',WebkitTextStroke:'1px rgba(0,0,0,.35)',transform:`scale(${enter})`}}>{cue.text}</div></AbsoluteFill>;
+ return <AbsoluteFill style={{justifyContent:'flex-end',alignItems:'center',paddingBottom:330-160*lift,pointerEvents:'none'}}><div key={`${source}-${cue.start}`} style={{maxWidth:920,padding:'10px 24px',textAlign:'center',fontFamily:'Segoe UI,Arial,sans-serif',fontSize:size,fontWeight:500,lineHeight:1.14,color:'#F2EACD',textShadow:'0 2px 5px rgba(0,0,0,.65)'}}>{cue.text}</div></AbsoluteFill>;
 };
 export const ProjectCard:React.FC<{slot:Showcase;time:number;lift:number;speed:number}>=({slot,time,lift,speed})=>{
  const frame=useCurrentFrame();

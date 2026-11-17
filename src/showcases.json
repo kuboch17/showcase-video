@@ -22,63 +22,80 @@
     "kind": "video"
   },
   {
-    "start": 80.34,
-    "end": 87.9,
-    "title": "CBA Music",
-    "subtitle": "Vlastná hudba. Vlastné publikum.",
-    "tags": [
-      "Music label",
-      "Instagram",
-      "Komunita"
-    ],
+    "start": 83.3,
+    "end": 86.2,
     "asset": "showcase/Screenshot_20261117_153114_Instagram.jpg",
-    "kind": "music-profile",
+    "kind": "music-profile-full",
+    "title": "CBA Music – celý profil",
     "source": 2,
+    "subtitle": "",
+    "tags": [],
     "instruction": ""
   },
   {
-    "start": 87.9,
-    "end": 92.4,
-    "title": "Hudba, ktorá si nájde publikum",
-    "subtitle": "Miliónové zobrazenia jednotlivých príspevkov",
-    "tags": [
-      "Reels",
-      "Obsah",
-      "Organický rast"
-    ],
-    "asset": "showcase/Screenshot_20261117_153720_Instagram.jpg",
-    "kind": "music-reels",
+    "start": 86.2,
+    "end": 89.1,
+    "asset": "showcase/Screenshot_20261117_153114_Instagram.jpg",
+    "kind": "music-followers",
+    "title": "14,8 K followerov",
     "source": 2,
+    "subtitle": "",
+    "tags": [],
     "instruction": ""
   },
   {
-    "start": 92.4,
-    "end": 99.47,
-    "title": "11 miliónov zobrazení za jún",
-    "subtitle": "Mesačný prehľad z Instagramu",
-    "tags": [
-      "11 M zobrazení",
-      "97 % nesledovateľov",
-      "Rast"
-    ],
+    "start": 89.1,
+    "end": 94.1,
     "asset": "showcase/IMG_20261117_153510_095.jpg",
-    "kind": "music-monthly",
+    "kind": "music-monthly-full",
+    "title": "Celý júnový prehľad",
     "source": 2,
+    "subtitle": "",
+    "tags": [],
     "instruction": ""
   },
   {
-    "start": 99.47,
-    "end": 106.4,
-    "title": "Od obsahu k reálnemu dosahu",
-    "subtitle": "Ukážka štatistík Instagram Insights",
-    "tags": [
-      "10 M+ zobrazení",
-      "4,69 M oslovených účtov",
-      "Analytics"
-    ],
+    "start": 94.1,
+    "end": 99.1,
     "asset": "showcase/IMG_20261117_153524_613.jpg",
     "kind": "music-insights",
+    "title": "10 038 000 views",
     "source": 2,
+    "subtitle": "",
+    "tags": [],
+    "instruction": ""
+  },
+  {
+    "start": 99.1,
+    "end": 100,
+    "asset": "showcase/Screenshot_20261117_153720_Instagram.jpg",
+    "kind": "music-pop-0",
+    "title": "4,7 M views",
+    "source": 2,
+    "subtitle": "",
+    "tags": [],
+    "instruction": ""
+  },
+  {
+    "start": 100.15,
+    "end": 101.05,
+    "asset": "showcase/Screenshot_20261117_153720_Instagram.jpg",
+    "kind": "music-pop-1",
+    "title": "6,9 M views",
+    "source": 2,
+    "subtitle": "",
+    "tags": [],
+    "instruction": ""
+  },
+  {
+    "start": 101.2,
+    "end": 102.1,
+    "asset": "showcase/Screenshot_20261117_153720_Instagram.jpg",
+    "kind": "music-pop-2",
+    "title": "6,4 M views",
+    "source": 2,
+    "subtitle": "",
+    "tags": [],
     "instruction": ""
   },
   {

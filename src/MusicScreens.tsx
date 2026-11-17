@@ -1,27 +1,27 @@
 import React from 'react';
 import {AbsoluteFill, Img, interpolate, staticFile} from 'remotion';
 
-const gold='#FFE477';
-const Metric:React.FC<{value:string;label:string}>=({value,label})=><div style={{marginBottom:36}}><div style={{fontSize:82,lineHeight:1.05,fontWeight:650,letterSpacing:-3,color:gold}}>{value}</div><div style={{fontSize:24,lineHeight:1.4,color:'#c5c9c9',marginTop:13}}>{label}</div></div>;
 export const MusicScreens:React.FC<{asset:string;kind:string;progress:number}>=({asset,kind,progress})=>{
- const movement=interpolate(progress,[0,1],[0,22],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
- return <AbsoluteFill style={{background:'#0c1013',overflow:'hidden',fontFamily:'Segoe UI,Arial,sans-serif',color:'#fff'}}>
-  {kind==='music-profile'&&<>
-   <div style={{position:'absolute',left:38,top:30,width:540,height:660,overflow:'hidden',borderRadius:15,border:'1px solid #ffffff14'}}><Img src={staticFile(asset)} style={{width:540,height:'auto',transform:`translateY(${-movement}px)`}}/></div>
-   <div style={{position:'absolute',left:630,top:155,right:32}}><div style={{fontSize:22,letterSpacing:3,color:'#9da8aa',marginBottom:34}}>CBA MUSIC</div><Metric value="14,8 K" label="sledovateľov"/><div style={{width:52,height:3,background:gold,margin:'35px 0'}}/><div style={{fontSize:27,lineHeight:1.5}}>Hudba.<br/>Obsah.<br/>Komunita.</div></div>
+ const full=kind==='music-profile-full'||kind==='music-monthly-full';
+ const pop=kind.startsWith('music-pop-');
+ const index=pop?Number(kind.slice(-1)):0;
+ const reveal=interpolate(progress,[0,.18,.84,1],[.88,1,1,.97],{extrapolateLeft:'clamp',extrapolateRight:'clamp',easing:t=>1-Math.pow(1-t,3)});
+ return <AbsoluteFill style={{background:pop?'transparent':'#0b1014',overflow:'hidden',fontFamily:'Segoe UI,Arial,sans-serif'}}>
+  {full&&<>
+   <AbsoluteFill style={{opacity:.19,filter:'blur(35px)',transform:'scale(1.15)'}}><Img src={staticFile(asset)} style={{width:'100%',height:'100%',objectFit:'cover'}}/></AbsoluteFill>
+   <AbsoluteFill style={{background:'linear-gradient(90deg,#080c10a0,transparent,#080c10a0)'}}/>
+   <Img src={staticFile(asset)} style={{position:'absolute',left:0,top:18,width:1080,height:684,objectFit:'contain',filter:'drop-shadow(0 15px 24px #0008)'}}/>
   </>}
-  {kind==='music-monthly'&&<>
-   <div style={{position:'absolute',left:28,top:25,width:520,height:670,overflow:'hidden',borderRadius:15,border:'1px solid #ffffff14'}}><Img src={staticFile(asset)} style={{width:520,height:'auto',transform:`translateY(${-460-movement}px)`}}/></div>
-   <div style={{position:'absolute',left:610,top:76,right:35}}><div style={{fontSize:21,letterSpacing:3,color:'#9da8aa',marginBottom:30}}>JÚNOVÝ PREHĽAD</div><Metric value="11 M" label="zobrazení"/><Metric value="97 %" label="od nesledovateľov"/><div style={{fontSize:25,color:'#d9ddda'}}>+4 993 sledovateľov</div></div>
+  {kind==='music-followers'&&<>
+   <div style={{position:'absolute',left:70,top:132,width:940,height:420,overflow:'hidden',borderRadius:16,boxShadow:'0 20px 55px #0009',border:'1px solid #ffffff14'}}>
+    <Img src={staticFile(asset)} style={{position:'absolute',width:1600,height:'auto',left:-390,top:-310}}/>
+    <div style={{position:'absolute',left:262,top:104,width:365,height:160,border:'2px solid #f3e3aa99',borderRadius:18,boxShadow:'0 0 0 999px #0004'}}/>
+   </div>
+   <div style={{position:'absolute',left:0,right:0,top:595,textAlign:'center',fontSize:25,letterSpacing:4,color:'#ddd3b3'}}>KOMUNITA OKOLO HUDBY</div>
   </>}
-  {kind==='music-reels'&&<>
-   <div style={{position:'absolute',left:46,top:65,fontSize:23,letterSpacing:3,color:'#9da8aa'}}>CBA MUSIC · REELS</div>
-   <Img src={staticFile(asset)} style={{position:'absolute',left:0,top:190,width:1080,height:'auto'}}/>
-   <div style={{position:'absolute',left:0,right:0,top:452,display:'flex',justifyContent:'space-around'}}>{['4,7 M','6,9 M','6,4 M'].map(v=><div key={v} style={{textAlign:'center'}}><div style={{fontSize:64,fontWeight:650,color:gold}}>{v}</div><div style={{fontSize:21,color:'#c5c9c9',marginTop:12}}>zobrazení</div></div>)}</div>
-  </>}
-  {kind==='music-insights'&&<>
-   <div style={{position:'absolute',left:45,top:30,fontSize:22,letterSpacing:3,color:'#9da8aa'}}>INSTAGRAM INSIGHTS</div>
-   <Img src={staticFile(asset)} style={{position:'absolute',left:32,top:90,width:1016,height:600,objectFit:'contain',transform:`scale(${1+progress*.015})`}}/>
-  </>}
+  {kind==='music-insights'&&<Img src={staticFile(asset)} style={{width:'100%',height:'100%',objectFit:'contain'}}/>}
+  {pop&&<div style={{position:'absolute',left:90,top:145,width:900,height:431,overflow:'hidden',borderRadius:15,boxShadow:'0 20px 60px #000a',transform:`scale(${reveal})`}}>
+   <Img src={staticFile(asset)} style={{position:'absolute',left:-index*900,top:0,width:2700,height:'auto',maxWidth:'none'}}/>
+  </div>}
  </AbsoluteFill>;
 };
