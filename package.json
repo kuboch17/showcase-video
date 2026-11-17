@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "remotion studio src/index.ts",
-    "render": "remotion render src/index.ts Main out/video.mp4",
+    "render": "node scripts/render.cjs",
     "check": "tsc --noEmit"
   },
   "dependencies": {

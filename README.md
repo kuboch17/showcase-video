@@ -10,3 +10,7 @@ Portrét 1080 × 1920, 30 fps, obe videá 1,05×. Hlavný záber 4:3 je predvole
 - `titulky.srt`: export titulkov pre aktuálny strih a rýchlosť.
 
 Props: `introStart`, `introSeconds`, `mainStart`, `mainSeconds`, `audioVolume`, `fadeEdges`, `subtitles`, `subtitleSize` (52 px), `showcase`. Rýchlosť 1,05× je nastavená v `src/Root.tsx`.
+
+## Export pri malom mieste na disku
+
+Použi `render.cmd` (alebo `npm run render`) namiesto exportu cez tlačidlo Render v Studiu. Skript `scripts/render.cjs` používa odkazy na pôvodné súbory namiesto kopírovania priečinka public, vypína build cache a po skončení vyčistí vlastné dočasné súbory. Výsledok je `out/Main.mp4`. Pred exportom kontroluje aspoň 1,5 GB voľného miesta; originály nemení.
