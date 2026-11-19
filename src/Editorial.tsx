@@ -1,25 +1,64 @@
 import React from 'react';
-import {AbsoluteFill, Img, OffthreadVideo, Sequence, interpolate, staticFile, useCurrentFrame} from 'remotion';
-import captions from './captions.json';
+import {AbsoluteFill, Freeze, Img, OffthreadVideo, Sequence, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+export {Subtitles} from './Subtitles';
 import showcases from './showcases.json';
 import {MusicScreens} from './MusicScreens';
-export type Cue={source:number;start:number;end:number;text:string};
-export type Showcase={source:number;start:number;end:number;title:string;subtitle:string;tags:string[];instruction:string;asset:string;kind:string};
-export const activeShowcase=(source:number,time:number)=>(showcases as Showcase[]).find(s=>s.source===source&&time>=s.start&&time<s.end);
-const ranges:{source:number;start:number;end:number}[]=[];
-for(const s of showcases){const last=ranges[ranges.length-1];if(last&&last.source===s.source&&s.start-last.end<.45)last.end=Math.max(last.end,s.end);else ranges.push({source:s.source,start:s.start,end:s.end});}
-export const showcaseLift=(source:number,time:number)=>{const r=ranges.find(r=>r.source===source&&time>=r.start-.4&&time<r.end+.4);if(!r)return 0;return interpolate(time,[r.start-.4,r.start+.25,r.end-.25,r.end+.4],[0,1,1,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp',easing:t=>t*t*(3-2*t)});};
-export const Subtitles:React.FC<{source:number;time:number;size:number;lift:number}>=({source,time,size,lift})=>{
- const cue=(captions as Cue[]).find(c=>c.source===source&&time>=c.start&&time<c.end);if(!cue)return null;
- return <AbsoluteFill style={{justifyContent:'flex-end',alignItems:'center',paddingBottom:330-160*lift,pointerEvents:'none'}}><div key={`${source}-${cue.start}`} style={{maxWidth:920,padding:'10px 24px',textAlign:'center',fontFamily:'Segoe UI,Arial,sans-serif',fontSize:size,fontWeight:500,lineHeight:1.14,color:'#F2EACD',textShadow:'0 2px 5px rgba(0,0,0,.65)'}}>{cue.text}</div></AbsoluteFill>;
+import {Tasks} from './ProjectScreens';
+
+import {CorpusEmail, ReadmeScroll} from './OpenSourceShowcase';
+type Showcase = (typeof showcases)[number];
+export const activeShowcase = (source: number, time: number) =>
+  showcases.find(slot => slot.source === source && time >= slot.start && (slot.end === null || time < slot.end));
+
+
+export const showcaseHeight = 1080 * 9 / 16;
+
+export const splitProgress = (slot: Showcase, time: number) => {
+  const neighbours = showcases.filter(other => other.source === slot.source);
+  const entering = neighbours.some(other => other.end === slot.start) ? 1 : (time - slot.start) / .45;
+  const leaving = slot.end === null || neighbours.some(other => other.start === slot.end) ? 1 : (slot.end - time) / .45;
+  const t = Math.max(0, Math.min(1, entering, leaving));
+  return t*t*(3-2*t);
 };
-export const ProjectCard:React.FC<{slot:Showcase;time:number;lift:number;speed:number}>=({slot,time,lift,speed})=>{
- const frame=useCurrentFrame();
- const opacity=interpolate(time,[slot.start,slot.start+.16,slot.end-.12,slot.end],[0,1,1,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
- const image=slot.kind==='image'||slot.kind.startsWith('music-');
- const progress=Math.max(0,Math.min(1,(time-slot.start)/(slot.end-slot.start)));
- // Same edge as the speaker: no margins, gutters or rounded white placeholders.
- return <div style={{position:'absolute',left:0,top:1365-425*lift,width:1080,height:720,overflow:'hidden',opacity:slot.asset?opacity:1}}>
-  {slot.asset?slot.kind.startsWith('music-')?<MusicScreens asset={slot.asset} kind={slot.kind} progress={progress}/>:image?<Img src={staticFile(slot.asset)} style={{width:'100%',height:'100%',objectFit:'contain',background:'#0c1013'}}/>:<Sequence from={frame-Math.round((time-slot.start)/speed*30)} layout="none"><OffthreadVideo muted src={staticFile(slot.asset)} style={{width:'100%',height:'100%',objectFit:'contain'}}/></Sequence>:<div style={{position:'absolute',inset:0,background:'#fff'}}/>}
- </div>;
+
+const FinalePhotos: React.FC<{asset: string; seconds: number}> = ({asset, seconds}) => {
+  const progress = Math.max(0, Math.min(1, (seconds - 1.15) / .62));
+  const slide = progress * progress * (3 - 2 * progress);
+  // Split the existing transparent diptych in its gutter to preserve both crops.
+  const photo: React.CSSProperties = {position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain'};
+  return <>
+    <Img src={staticFile(asset)} style={{...photo, clipPath: 'inset(0 32% 0 0)',
+      transform: 'translateX(' + 165.5 * (1 - slide) + 'px)'}}/>
+    <Img src={staticFile(asset)} style={{...photo, clipPath: 'inset(0 0 0 68%)',
+      transform: 'translateX(' + 350 * (1 - slide) + 'px)', opacity: slide}}/>
+  </>;
+};
+
+export const ProjectCard: React.FC<{slot: Showcase; top: number; opacity: number; time: number; speed: number}> = ({slot,top,opacity,time,speed}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const elapsed = time-slot.start;
+  const mediaFrame = Math.floor(elapsed*fps/speed+1e-7);
+  if (slot.kind === 'index') {
+    const readme = showcases.find(previous => previous.kind === 'llama' && previous.end === slot.start);
+    return <>
+      {readme && <div style={{position:'absolute',left:0,top,opacity,width:'100%',height:showcaseHeight,overflow:'hidden'}}>
+        <ReadmeScroll t={slot.start - readme.start}/>
+      </div>}
+      <CorpusEmail t={elapsed} opacity={opacity}/>
+    </>;
+  }
+  return <div style={{position:'absolute',left:0,top,opacity,width:'100%',height:showcaseHeight,overflow:'hidden'}}>
+    {slot.kind === 'tasks' ? <Tasks elapsed={elapsed}/> :
+      slot.kind === 'finale' ? <FinalePhotos asset={slot.asset} seconds={elapsed/speed}/> :
+      slot.kind.startsWith('music-') ? <MusicScreens kind={slot.kind} asset={slot.asset} elapsed={elapsed}/> :
+      slot.kind === 'llama' ? <ReadmeScroll t={elapsed}/> :
+      <Sequence from={frame-mediaFrame} layout="none">
+        {slot.kind === 'grant' ? <Freeze frame={14*fps-1} active={mediaFrame >= 14*fps}><OffthreadVideo muted src={staticFile(slot.asset)} style={{width:'100%',height:'100%',objectFit:'contain'}}/></Freeze> :
+        <AbsoluteFill style={{alignItems:'center',justifyContent:'center',background:'#f0eee5'}}>
+          <div style={{width:'80%',font:'600 30px Segoe UI',color:'#006b56',marginBottom:10}}>{slot.title}</div>
+          <OffthreadVideo muted src={staticFile(slot.asset)} style={{width:'80%',height:475,objectFit:'contain'}}/>
+        </AbsoluteFill>}
+      </Sequence>}
+  </div>;
 };

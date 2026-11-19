@@ -1,27 +1,53 @@
 import React from 'react';
-import {AbsoluteFill, Img, interpolate, staticFile} from 'remotion';
+import {AbsoluteFill, Img, staticFile} from 'remotion';
 
-export const MusicScreens:React.FC<{asset:string;kind:string;progress:number}>=({asset,kind,progress})=>{
- const full=kind==='music-profile-full'||kind==='music-monthly-full';
- const pop=kind.startsWith('music-pop-');
- const index=pop?Number(kind.slice(-1)):0;
- const reveal=interpolate(progress,[0,.18,.84,1],[.88,1,1,.97],{extrapolateLeft:'clamp',extrapolateRight:'clamp',easing:t=>1-Math.pow(1-t,3)});
- return <AbsoluteFill style={{background:pop?'transparent':'#0b1014',overflow:'hidden',fontFamily:'Segoe UI,Arial,sans-serif'}}>
-  {full&&<>
-   <AbsoluteFill style={{opacity:.19,filter:'blur(35px)',transform:'scale(1.15)'}}><Img src={staticFile(asset)} style={{width:'100%',height:'100%',objectFit:'cover'}}/></AbsoluteFill>
-   <AbsoluteFill style={{background:'linear-gradient(90deg,#080c10a0,transparent,#080c10a0)'}}/>
-   <Img src={staticFile(asset)} style={{position:'absolute',left:0,top:18,width:1080,height:684,objectFit:'contain',filter:'drop-shadow(0 15px 24px #0008)'}}/>
-  </>}
-  {kind==='music-followers'&&<>
-   <div style={{position:'absolute',left:70,top:132,width:940,height:420,overflow:'hidden',borderRadius:16,boxShadow:'0 20px 55px #0009',border:'1px solid #ffffff14'}}>
-    <Img src={staticFile(asset)} style={{position:'absolute',width:1600,height:'auto',left:-390,top:-310}}/>
-    <div style={{position:'absolute',left:262,top:104,width:365,height:160,border:'2px solid #f3e3aa99',borderRadius:18,boxShadow:'0 0 0 999px #0004'}}/>
-   </div>
-   <div style={{position:'absolute',left:0,right:0,top:595,textAlign:'center',fontSize:25,letterSpacing:4,color:'#ddd3b3'}}>KOMUNITA OKOLO HUDBY</div>
-  </>}
-  {kind==='music-insights'&&<Img src={staticFile(asset)} style={{width:'100%',height:'100%',objectFit:'contain'}}/>}
-  {pop&&<div style={{position:'absolute',left:90,top:145,width:900,height:431,overflow:'hidden',borderRadius:15,boxShadow:'0 20px 60px #000a',transform:`scale(${reveal})`}}>
-   <Img src={staticFile(asset)} style={{position:'absolute',left:-index*900,top:0,width:2700,height:'auto',maxWidth:'none'}}/>
-  </div>}
- </AbsoluteFill>;
+import showcases from './showcases.json';
+const grid = showcases.find(slot => slot.kind === 'music-profile')!;
+const gridDuration = grid.end! - grid.start;
+const strip = 'showcase/Screenshot_20261117_153720_Instagram.jpg';
+const smooth = (time: number, start: number, end: number) => {
+  const t = Math.max(0, Math.min(1, (time-start)/(end-start)));
+  return t*t*(3-2*t);
+};
+
+export const MusicScreens: React.FC<{asset: string; kind: string; elapsed: number}> = ({asset, kind, elapsed}) => {
+  if (kind === 'music-results') {
+    const overlay = smooth(elapsed, 2.65, 3.25);
+    return <AbsoluteFill>
+      <Img src={staticFile(asset)} style={{position:'absolute',left:140-124*overlay,top:4,width:800-174*overlay,height:416,objectFit:'contain'}}/>
+      <Img src={staticFile('showcase/cba-views.jpg')} style={{position:'absolute',right:38,
+        top:52,width:433,borderRadius:10,boxShadow:'0 5px 22px #0007',
+        opacity:overlay,transform:'translateY('+18*(1-overlay)+'px)'}}/>
+      {[0,1,2].map((i) => {
+        const age = elapsed - (.85 + i * .61);
+        if (age < 0) return null;
+        const ease = 1 - (1-Math.min(1, age/.16))**3;
+        return <div key={i} style={{position:'absolute',left:26+i*347,top:[431,416,438][i],width:331,
+          aspectRatio:'512 / 245',overflow:'hidden',borderRadius:8,boxShadow:'0 4px 18px #0007',
+          opacity:ease,transform:'translateY('+12*(1-ease)+'px)'}}>
+          <Img src={staticFile(strip)} style={{position:'absolute',width:'300%',left:(-100*i)+'%',top:0}}/>
+        </div>;
+      })}
+    </AbsoluteFill>;
+  }
+  const followers = kind === 'music-followers';
+  const slide = followers ? smooth(elapsed, 0, .56) : 0;
+  const scrollTime = followers ? gridDuration + elapsed : elapsed;
+  const highlight = smooth(elapsed, .48, 1.05);
+  return <AbsoluteFill style={{alignItems:'center',justifyContent:'center'}}>
+    <div style={{position:'relative',width:944,height:531,overflow:'hidden',borderRadius:12,
+      background:'#0c1014',boxShadow:'0 5px 18px #0006'}}>
+      {slide < 1 && <Img src={staticFile(followers ? 'showcase/cba-grid.jpg' : asset)}
+        style={{position:'absolute',width:'100%',top:-92-1225*scrollTime/gridDuration-531*slide}}/>}
+      {followers && <AbsoluteFill style={{justifyContent:'center',background:'#0d0e12',
+        transform:'translateY('+531*(1-slide)+'px)'}}>
+        <div style={{position:'relative'}}>
+          <Img src={staticFile(asset)} style={{display:'block',width:'100%'}}/>
+          <div style={{position:'absolute',top:'44%',height:'16%',left:'53.75%',
+            width:(12.1*highlight)+'%',background:'#ffdb65',mixBlendMode:'screen',
+            opacity:.45,borderRadius:4}}/>
+        </div>
+      </AbsoluteFill>}
+    </div>
+  </AbsoluteFill>;
 };

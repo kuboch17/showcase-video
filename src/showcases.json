@@ -1,112 +1,82 @@
 [
   {
     "source": 1,
-    "start": 35.4,
-    "end": 40.6,
-    "title": "AI demo",
-    "subtitle": "",
-    "tags": [],
-    "instruction": "",
-    "asset": "",
-    "kind": "video"
+    "start": 14.84,
+    "end": 22.18,
+    "kind": "tasks",
+    "title": "Štyri výzvy",
+    "asset": ""
+  },
+  {
+    "source": 1,
+    "start": 29.45,
+    "end": null,
+    "kind": "grant",
+    "title": "eGrant AI",
+    "asset": "showcase/egrant-ai-pan.mp4"
+  },
+  {
+    "source": 2,
+    "start": 46.70,
+    "end": 51.40,
+    "kind": "finale",
+    "title": "Finále",
+    "asset": "showcase/hackathon-finale-margin.png"
   },
   {
     "source": 2,
     "start": 60.4,
-    "end": 65.5,
-    "title": "Allianz automatizácia",
-    "subtitle": "",
-    "tags": [],
-    "instruction": "",
-    "asset": "",
-    "kind": "video"
+    "end": 67.4,
+    "kind": "video",
+    "title": "Symphony · Workflow",
+    "asset": "showcase/story/match.mp4"
   },
   {
-    "start": 83.3,
-    "end": 86.2,
-    "asset": "showcase/Screenshot_20261117_153114_Instagram.jpg",
-    "kind": "music-profile-full",
-    "title": "CBA Music – celý profil",
     "source": 2,
-    "subtitle": "",
-    "tags": [],
-    "instruction": ""
+    "start": 67.4,
+    "end": 73.9,
+    "kind": "video",
+    "title": "Symphony · Alerty",
+    "asset": "showcase/story/queue.mp4"
   },
   {
-    "start": 86.2,
-    "end": 89.1,
-    "asset": "showcase/Screenshot_20261117_153114_Instagram.jpg",
+    "source": 2,
+    "start": 84.22,
+    "end": 92.4,
+    "kind": "music-profile",
+    "title": "Profil",
+    "asset": "showcase/cba-grid.jpg"
+  },
+  {
+    "source": 2,
+    "start": 92.4,
+    "end": 99.47,
     "kind": "music-followers",
-    "title": "14,8 K followerov",
-    "source": 2,
-    "subtitle": "",
-    "tags": [],
-    "instruction": ""
-  },
-  {
-    "start": 89.1,
-    "end": 94.1,
-    "asset": "showcase/IMG_20261117_153510_095.jpg",
-    "kind": "music-monthly-full",
-    "title": "Celý júnový prehľad",
-    "source": 2,
-    "subtitle": "",
-    "tags": [],
-    "instruction": ""
-  },
-  {
-    "start": 94.1,
-    "end": 99.1,
-    "asset": "showcase/IMG_20261117_153524_613.jpg",
-    "kind": "music-insights",
-    "title": "10 038 000 views",
-    "source": 2,
-    "subtitle": "",
-    "tags": [],
-    "instruction": ""
-  },
-  {
-    "start": 99.1,
-    "end": 100,
-    "asset": "showcase/Screenshot_20261117_153720_Instagram.jpg",
-    "kind": "music-pop-0",
-    "title": "4,7 M views",
-    "source": 2,
-    "subtitle": "",
-    "tags": [],
-    "instruction": ""
-  },
-  {
-    "start": 100.15,
-    "end": 101.05,
-    "asset": "showcase/Screenshot_20261117_153720_Instagram.jpg",
-    "kind": "music-pop-1",
-    "title": "6,9 M views",
-    "source": 2,
-    "subtitle": "",
-    "tags": [],
-    "instruction": ""
-  },
-  {
-    "start": 101.2,
-    "end": 102.1,
-    "asset": "showcase/Screenshot_20261117_153720_Instagram.jpg",
-    "kind": "music-pop-2",
-    "title": "6,4 M views",
-    "source": 2,
-    "subtitle": "",
-    "tags": [],
-    "instruction": ""
+    "title": "Publikum",
+    "asset": "showcase/cba-followers.jpg"
   },
   {
     "source": 2,
-    "start": 116,
-    "end": 120.5,
-    "title": "GitHub projekty",
-    "subtitle": "",
-    "tags": [],
-    "instruction": "",
-    "asset": "",
-    "kind": "video"
+    "start": 99.47,
+    "end": 106.4,
+    "kind": "music-results",
+    "title": "Zobrazenia",
+    "asset": "showcase/IMG_20261117_153524_613.jpg"
+  },
+  {
+    "source": 2,
+    "start": 113.67,
+    "end": 118.22,
+    "kind": "llama",
+    "title": "Llamassage",
+    "asset": ""
+  },
+  {
+    "source": 2,
+    "start": 118.22,
+    "end": 123.9,
+    "kind": "index",
+    "title": "XERJ AI Corpus Hub",
+    "asset": ""
   }
 ]
