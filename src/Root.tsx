@@ -1,3 +1,4 @@
+import {SymphonyDemo} from './SymphonyDemo';
 import React from 'react';
 import {AbsoluteFill, Composition, OffthreadVideo, Sequence, staticFile, useCurrentFrame, useVideoConfig, interpolate} from 'remotion';
 import {z} from 'zod';
@@ -31,6 +32,7 @@ const Edit:React.FC<Props>=(p)=>{
   <div style={{position:'absolute',left:0,top:speakerTop,width:1080,height:speakerHeight,overflow:'hidden',boxShadow:'0 25px 90px #0006'}}><Footage p={p} style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'50% 42%'}}/></div>
   <AbsoluteFill style={{background:'radial-gradient(ellipse at 50% 44%,transparent 35%,rgba(0,0,0,.24) 70%,rgba(0,0,0,.77) 100%)',pointerEvents:'none'}}/>
   {slot&&<ProjectCard slot={slot} top={panelTop} opacity={lift} time={time} speed={speed}/>}
+  {slot?.kind==='symphony' && time-slot.start>=6.5 && <SymphonyDemo seconds={time-slot.start} overlay/>}
   {p.subtitles&&<Subtitles source={source} time={time} size={p.subtitleSize} centerY={captionCenter}/>}
  </AbsoluteFill></AbsoluteFill>;
 };

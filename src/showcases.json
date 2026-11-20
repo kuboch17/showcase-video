@@ -17,27 +17,19 @@
   },
   {
     "source": 2,
-    "start": 46.70,
-    "end": 51.40,
+    "start": 46.7,
+    "end": 51.4,
     "kind": "finale",
     "title": "Finále",
     "asset": "showcase/hackathon-finale-margin.png"
   },
   {
     "source": 2,
-    "start": 60.4,
-    "end": 67.4,
-    "kind": "video",
-    "title": "Symphony · Workflow",
-    "asset": "showcase/story/match.mp4"
-  },
-  {
-    "source": 2,
-    "start": 67.4,
+    "start": 54.369,
     "end": 73.9,
-    "kind": "video",
-    "title": "Symphony · Alerty",
-    "asset": "showcase/story/queue.mp4"
+    "kind": "symphony",
+    "title": "Symphony · Workflow",
+    "asset": ""
   },
   {
     "source": 2,

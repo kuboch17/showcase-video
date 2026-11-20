@@ -6,6 +6,7 @@ import {MusicScreens} from './MusicScreens';
 import {Tasks} from './ProjectScreens';
 
 import {CorpusEmail, ReadmeScroll} from './OpenSourceShowcase';
+import {SymphonyDemo} from './SymphonyDemo';
 type Showcase = (typeof showcases)[number];
 export const activeShowcase = (source: number, time: number) =>
   showcases.find(slot => slot.source === source && time >= slot.start && (slot.end === null || time < slot.end));
@@ -49,7 +50,7 @@ export const ProjectCard: React.FC<{slot: Showcase; top: number; opacity: number
     </>;
   }
   return <div style={{position:'absolute',left:0,top,opacity,width:'100%',height:showcaseHeight,overflow:'hidden'}}>
-    {slot.kind === 'tasks' ? <Tasks elapsed={elapsed}/> :
+    {slot.kind === 'symphony' ? <SymphonyDemo seconds={elapsed/speed}/> : slot.kind === 'tasks' ? <Tasks elapsed={elapsed}/> :
       slot.kind === 'finale' ? <FinalePhotos asset={slot.asset} seconds={elapsed/speed}/> :
       slot.kind.startsWith('music-') ? <MusicScreens kind={slot.kind} asset={slot.asset} elapsed={elapsed}/> :
       slot.kind === 'llama' ? <ReadmeScroll t={elapsed}/> :
