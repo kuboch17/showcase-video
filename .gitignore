@@ -2,3 +2,5 @@ node_modules/
 .tools/
 out/
 *.log
+
+/start-identity-demo.cmd
