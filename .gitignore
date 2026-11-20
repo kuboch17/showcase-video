@@ -4,3 +4,6 @@ out/
 *.log
 
 /start-identity-demo.cmd
+
+/identity-demo/
+/identity-demo.ps1
