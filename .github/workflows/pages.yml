@@ -24,7 +24,7 @@ jobs:
       - name: Prepare page
         run: |
           mkdir _site
-          cp index.html jakub_chyznaj_motivacne_video.mp4 _site/
+          cp index.html CVcko.pdf jakub_chyznaj_motivacne_video.mp4 _site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
