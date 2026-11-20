@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101110" />
+    <title>Jakub Chyžnaj — Motivačné video</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; background: #101110; color: #f3f3ef; font-family: Inter, Arial, sans-serif; }
+      main { width: min(100% - 40px, 1000px); margin: 0 auto; padding: 32px 0; }
+      header { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
+      h1 { margin: 0; font-size: 21px; font-weight: 500; letter-spacing: -.5px; }
+      p { margin: 0; font-size: 13px; color: #a5a8a2; }
+      video { display: block; width: 100%; height: min(80svh, 960px); background: #000; border-radius: 12px; object-fit: contain; box-shadow: 0 20px 80px #0005; }
+      video:focus-visible { outline: 2px solid #dfd69d; outline-offset: 4px; }
+      footer { margin-top: 18px; font-size: 13px; }
+      a { color: #b3b7ae; text-underline-offset: 4px; }
+      @media (max-width: 520px) { main { width: calc(100% - 24px); padding: 22px 0; } header { display: block; } p { margin-top: 7px; } video { height: 76svh; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header><h1>Jakub Chyžnaj</h1><p>Motivačné video</p></header>
+      <video controls playsinline preload="metadata" aria-label="Motivačné video Jakuba Chyžnaja">
+        <source src="./jakub_chyznaj_motivacne_video.mp4" type="video/mp4" />
+        Váš prehliadač nepodporuje prehrávanie videa. <a href="./jakub_chyznaj_motivacne_video.mp4">Stiahnuť video</a>
+      </video>
+      <footer><a href="./jakub_chyznaj_motivacne_video.mp4" download>Stiahnuť video</a></footer>
+    </main>
+  </body>
+</html>
